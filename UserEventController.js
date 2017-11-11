@@ -4,11 +4,11 @@ public function getEventGuestForm(Request $request) {
                                         $response['success'] = false;
                                         $ch = curl_init();
 
-                                        curl_setopt($ch, CURLOPT_URL, "https://api.createsend.com/api/v3.1/lists/e4887afd46fd8553b7f76eb4e7625dc0/customfields.json");
+                                        curl_setopt($ch, CURLOPT_URL, "https://api.createsend.com/api/v3.1/lists/<param>/customfields.json");
                                         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
                                         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 
-                                        curl_setopt($ch, CURLOPT_USERPWD, "e6d52fa9f736c2ad5b38248b9e11bc4112127cc800dd088f" . ":" . "x");
+                                        curl_setopt($ch, CURLOPT_USERPWD, "unm" . ":" . "pwd");
 
                                         $result = curl_exec($ch);
                                         if (curl_errno($ch)) {
@@ -48,11 +48,11 @@ public function getEventGuestForm(Request $request) {
                                         }
 //                                        $fields_string = http_build_query($RequestData);
                                         $RequestData = json_encode($RequestData);
-                                        curl_setopt($ch, CURLOPT_URL, "https://api.createsend.com/api/v3.1/subscribers/e4887afd46fd8553b7f76eb4e7625dc0.json");
+                                        curl_setopt($ch, CURLOPT_URL, "https://api.createsend.com/api/v3.1/subscribers/<param>.json");
                                         curl_setopt($ch, CURLOPT_POST, 1);
                                         curl_setopt($ch, CURLOPT_POSTFIELDS, $RequestData);
 
-                                        curl_setopt($ch, CURLOPT_USERPWD, "e6d52fa9f736c2ad5b38248b9e11bc4112127cc800dd088f" . ":" . "x");
+                                        curl_setopt($ch, CURLOPT_USERPWD, "unm" . ":" . "pwd");
 
                                         $result = curl_exec($ch);
                                         if (curl_errno($ch)) {
